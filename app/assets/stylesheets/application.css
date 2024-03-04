@@ -15,6 +15,7 @@
  */
 @import "home";
 @import "navbar";
+/* public/assets/font probably isn't the right place, since we don't commit that thing. Find best place to add Geist font files*/
 @font-face {
     font-family: 'Geist';
     src: url('/fonts/Geist/Geist-Regular.woff2') format('woff2'),
