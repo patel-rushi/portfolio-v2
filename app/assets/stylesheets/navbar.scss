@@ -1,0 +1,10 @@
+.navbar{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    .nav-link{
+        text-decoration: none;
+        cursor: pointer;
+        color: inherit;
+    }
+}
