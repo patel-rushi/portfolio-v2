@@ -1,5 +1,7 @@
 # README
 
+Figma design file: https://www.figma.com/file/aLu0G6bPiSQuSghmBbl76D/Personal-Brand?type=design&node-id=4-87&mode=design&t=WvEPEmdeZaEA4uKi-0
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
