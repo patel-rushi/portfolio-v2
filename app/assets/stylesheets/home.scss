@@ -1,0 +1,27 @@
+.home-page{
+    margin-top: 4rem;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates a 3-column layout */
+    grid-gap: 10px; /* Adjust the gap between images */
+}
+.image {
+background-size: cover;
+background-position: center;
+}
+
+.image-1x3 {
+grid-column: span 3; /* This image will span all three columns */
+grid-row: span 1; /* This image will span one row */
+}
+
+.image-1x2 {
+grid-column: span 2; /* This image will span two columns */
+grid-row: span 1; /* This image will span one row */
+}
+
+.image-1x1 {
+grid-column: span 1; /* This image will span one column */
+grid-row: span 1; /* This image will span one row */
+}
