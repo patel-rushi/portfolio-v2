@@ -8,6 +8,9 @@
         text-decoration: none;
         cursor: pointer;
         color: inherit;
+        &.active{
+            text-decoration: underline;
+        }
     }
 }
 

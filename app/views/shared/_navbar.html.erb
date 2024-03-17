@@ -1,7 +1,7 @@
 <div class="navbar">
-    <%= link_to "home", root_path, class: "nav-link" %>
-    <%= link_to "work", root_path, class: "nav-link" %>
-    <%= link_to "education", root_path, class: "nav-link" %>
-    <%= link_to "dairy", root_path, class: "nav-link" %>
-    <%= link_to "tech", root_path, class: "nav-link" %>
+    <%= link_to "home", root_path, class: ("nav-link active" if current_page?(root_path)) %>
+    <%= link_to "work", work_index_path,  class: ("nav-link active" if current_page?(work_index_path)) %>
+    <%= link_to "education", education_index_path, class: ("nav-link active" if current_page?(education_index_path)) %>
+    <%= link_to "dairy", dairy_index_path, class: ("nav-link active" if current_page?(dairy_index_path)) %>
+    <%= link_to "tech", tech_index_path, class: ("nav-link active" if current_page?(tech_index_path)) %>
 </div>
