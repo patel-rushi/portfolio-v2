@@ -17,6 +17,7 @@
 @import 'font-awesome';
 @import "home";
 @import "navbar";
+@import "blog";
 
 @font-face {
     font-family: 'Geist';
@@ -31,7 +32,15 @@ html {
 body{
     font-family: 'Geist', Helvetica, sans-serif; 
     width: 45rem;
-    margin: 2rem auto;
+    margin: 2rem auto 4rem auto;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
 }
 .hey-im-rushi{
     width: fit-content;
@@ -40,6 +49,11 @@ body{
     .fa-hand-spock{
         color: chocolate;
     }
+}
+.card{
+    border-radius: 10px;
+    border: 1px solid $medium-grey;
+    background-color: $light-grey;
 }
 
 @media (max-width: $screen-md) {
