@@ -1,3 +1,5 @@
+@import 'variables';
+
 .home-page{
     margin-top: 4rem;
 }
@@ -6,6 +8,11 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 100px);
     grid-gap: 10px;
+    grid-template-areas: 
+    "paris-seating paris-speaking saas-north-id"
+    "paris-seating paris-speaking convocation-degree-certificate"
+    "convocation-stage-walk paris-speaking convocation-degree-certificate"
+    "convocation-stage-walk paris-speaking convocation-degree-certificate";
 }
 .image img{
     width: 100%;
@@ -15,18 +22,32 @@
     border-radius: 10px;
 }
 .image-1-2x1{
-    grid-row: 1/3;
+    grid-area: paris-seating;
 }
 .image-2-3x1{
-    grid-row: 1/5;
+    grid-area: paris-speaking;
 }
 .image-3-1x1{
-    grid-row: 1/2;
+    grid-area: saas-north-id;
 }
 .image-4-1x1{
-    grid-row: 3/5;
+    grid-area: convocation-stage-walk;
 }
 .image-5-2x1{
-    grid-row: 2/5;
+    grid-area: convocation-degree-certificate;
+}
+
+@media (max-width: $screen-md) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 100px);
+        grid-template-areas: 
+        "paris-seating saas-north-id"
+        "paris-seating convocation-stage-walk"
+        "paris-speaking convocation-stage-walk"
+        "paris-speaking convocation-degree-certificate"
+        "paris-speaking convocation-degree-certificate"
+        "paris-speaking convocation-degree-certificate"
+    }
 }
 
