@@ -1,3 +1,5 @@
+@import 'variables';
+
 .navbar{
     display: flex;
     justify-content: center;
@@ -6,5 +8,12 @@
         text-decoration: none;
         cursor: pointer;
         color: inherit;
+    }
+}
+
+@media (max-width: $screen-xs) {
+    .navbar{
+        justify-content: space-around;
+        gap: unset;
     }
 }

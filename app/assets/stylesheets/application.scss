@@ -13,9 +13,11 @@
  *= require_tree .
  *= require_self
  */
+@import 'variables';
 @import 'font-awesome';
 @import "home";
 @import "navbar";
+
 @font-face {
     font-family: 'Geist';
     src: url('/fonts/Geist/Geist-Regular.woff2') format('woff2'),
@@ -23,15 +25,25 @@
     font-weight: normal;
     font-style: normal;
 }
+html {
+    min-width: $screen-unreal;
+}
 body{
     font-family: 'Geist', Helvetica, sans-serif; 
-    width: 50%;
+    width: 45rem;
     margin: 2rem auto;
 }
 .hey-im-rushi{
     width: fit-content;
+    font-size: 1.5rem;
     margin: 2rem auto;
     .fa-hand-spock{
         color: chocolate;
+    }
+}
+
+@media (max-width: $screen-md) {
+    body{
+        width: 90%;
     }
 }
