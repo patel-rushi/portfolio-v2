@@ -2,22 +2,30 @@
     <p>I'm a seeker, who's on a quest for truth, 
     constantly striving to evolve and explore the deeper 
     dimensions of my being, beyond the ephemeral. 
-    Follow my personal journey of evolution -></p>
+    <%= link_to 'Follow my personal journey of evolution', dairy_index_path, class: 'link_to' %>
+    <i class="fas fa-arrow-right"></i> 
+    </p>
     
     <%= render 'image_grid' %>
     
     <p>Professionally, I am drawn to the art of creation, 
-    which manifests in my role as a software developer @ Explorator Labs. 
+    which manifests in my role as a 
+    <%=link_to 'software developer', work_index_path, class: 'link_to' %>. 
     I possess an aptitude for organization and a keen sense of prioritizing 
-    my time and efforts—skills that have also propelled me into project management.</p>
+    my time and efforts—skills that have also propelled me into 
+    <%=link_to 'managing projects', work_index_path, class: 'link_to' %>.
+    </p>
     
-    <%= render '/blog/card' %>
-
-    <div>
-        <i class="fas fa-arrow-right"></i> <u>See all tech posts</u>
+    <div class='home-tech-post-div'>
+        <%= render '/blog/card' %>
+        <div>
+            <i class="fas fa-arrow-right"></i> <u>See all tech posts</u>
+        </div>
     </div>
 
-    <p>Intuitively understanding user needs and translating them into practical, 
+    <p>Intuitively 
+    <%=link_to 'understanding user needs', tech_index_path, class: 'link_to' %>
+    and translating them into practical, 
     effective software solutions is what I enjoy. This journey for me is more 
     than just about developing software; it's about crafting experiences that 
     resonate and endure. </p>

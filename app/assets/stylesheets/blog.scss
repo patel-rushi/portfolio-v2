@@ -3,14 +3,13 @@
 .blog-card{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.8rem;
     align-items: center;
 }
 
 .blog-text{
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .blog-title{
