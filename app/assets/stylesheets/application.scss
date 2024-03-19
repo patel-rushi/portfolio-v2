@@ -33,6 +33,7 @@ body{
     font-family: 'Geist', Helvetica, sans-serif; 
     width: 45rem;
     margin: 2rem auto 4rem auto;
+    line-height: 1.75rem;
 }
 p{
     padding: 0;
@@ -42,12 +43,18 @@ a{
     text-decoration: none;
     color: inherit;
 }
+.link_to{
+    text-decoration: underline;
+}
 .hey-im-rushi{
     width: fit-content;
     font-size: 1.5rem;
     margin: 2rem auto;
-    .fa-hand-spock{
-        color: chocolate;
+    i {
+        color: darkorange;
+        display: inline-block;
+        animation: right-to-left 0.5s ease-in-out 3;
+        //color: lightcoral
     }
 }
 .card{
@@ -55,7 +62,14 @@ a{
     border: 1px solid $medium-grey;
     background-color: $light-grey;
 }
-
+@keyframes right-to-left {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+}
 @media (max-width: $screen-md) {
     body{
         width: 90%;

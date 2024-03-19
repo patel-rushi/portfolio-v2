@@ -58,6 +58,10 @@
 .follow-me{
     text-align: center;
 }
+.home-tech-post-div{
+    display: grid;
+    gap: 1rem;
+}
 @media (max-width: $screen-md) {
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
