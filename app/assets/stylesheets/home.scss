@@ -1,0 +1,78 @@
+@import 'variables';
+
+.home-page{
+    display: grid;
+    margin-top: 3rem;
+    gap: 3rem;
+    font-size: 1rem;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 100px);
+    grid-gap: 10px;
+    grid-template-areas: 
+    "paris-seating paris-speaking saas-north-id"
+    "paris-seating paris-speaking convocation-degree-certificate"
+    "convocation-stage-walk paris-speaking convocation-degree-certificate"
+    "convocation-stage-walk paris-speaking convocation-degree-certificate";
+}
+.image img{
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.image-1-2x1{
+    grid-area: paris-seating;
+}
+.image-2-3x1{
+    grid-area: paris-speaking;
+}
+.image-3-1x1{
+    grid-area: saas-north-id;
+}
+.image-4-1x1{
+    grid-area: convocation-stage-walk;
+}
+.image-5-2x1{
+    grid-area: convocation-degree-certificate;
+}
+.tech-stack-icon-div{
+    display: flex;
+    gap: 1rem;
+}
+.tech-stack-card{
+    margin-top: 1rem;
+    width: fit-content;
+    height: 2rem;
+    padding: 10px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+.follow-me{
+    text-align: center;
+}
+.home-tech-post-div{
+    display: grid;
+    gap: 1rem;
+}
+@media (max-width: $screen-md) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 100px);
+        grid-template-areas: 
+        "paris-seating saas-north-id"
+        "paris-seating convocation-stage-walk"
+        "paris-speaking convocation-stage-walk"
+        "paris-speaking convocation-degree-certificate"
+        "paris-speaking convocation-degree-certificate"
+        "paris-speaking convocation-degree-certificate"
+    }
+}
+

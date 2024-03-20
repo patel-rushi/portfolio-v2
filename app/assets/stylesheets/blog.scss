@@ -1,0 +1,17 @@
+@import 'variables';
+
+.blog-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    align-items: center;
+}
+
+.blog-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-title{
+    font-weight: 600;
+}
