@@ -46,21 +46,48 @@ a{
 .link_to{
     text-decoration: underline;
 }
-.hey-im-rushi{
-    width: fit-content;
-    font-size: 1.5rem;
-    margin: 2rem auto;
-    i {
-        color: darkorange;
-        display: inline-block;
-        animation: right-to-left 0.5s ease-in-out 3;
-        //color: lightcoral
-    }
-}
 .card{
     border-radius: 10px;
     border: 1px solid $medium-grey;
     background-color: $light-grey;
+}
+.hey-im-rushi {
+    width: fit-content;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+    i {
+        font-size: 1.5rem;
+        color: darkorange;
+        display: inline-block;
+        animation: right-to-left 0.5s ease-in-out 4;
+        animation-delay: 1s;
+    }
+}
+.hey-im-rushi-animated-div{
+    font-size: 0;
+    // Each letter span
+    span {
+    font-size: 1.5rem;
+    opacity: 0;
+    display: inline-block;
+    animation: fadeInLetter 0.5s forwards;
+    }
+    .space{
+    display: inline-block;
+    width: 0.5ch;
+    }
+}
+// Use SCSS loop to generate delays for each child
+@for $i from 1 through str-length("Hey, I'm Rushi Patel") {
+    .hey-im-rushi span:nth-child(#{$i}) {
+        animation-delay: 0.05s * $i;
+    }
+}
+// Animations
+@keyframes fadeInLetter {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 @keyframes right-to-left {
     0%, 100% {
@@ -70,6 +97,7 @@ a{
         transform: rotate(20deg);
     }
 }
+// Different screen size styling
 @media (max-width: $screen-md) {
     body{
         width: 90%;
