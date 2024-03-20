@@ -19,7 +19,8 @@
     <div class='home-tech-post-div'>
         <%= render '/blog/card' %>
         <div>
-            <i class="fas fa-arrow-right"></i> <u>See all tech posts</u>
+            <i class="fas fa-arrow-right"></i>
+            <%=link_to 'See all tech posts', tech_index_path, class: 'link_to' %>
         </div>
     </div>
 
