@@ -21,8 +21,8 @@
 
 @font-face {
     font-family: 'Geist';
-    src: url('/fonts/Geist/Geist-Regular.woff2') format('woff2'),
-         url('/fonts/Geist/Geist-Regular.otf') format('opentype');
+    src: url(asset-url('Geist/Geist-Regular.woff2')) format('woff2'),
+         url(asset-url('Geist/Geist-Regular.otf')) format('opentype');
     font-weight: normal;
     font-style: normal;
 }
