@@ -1,1 +1,16 @@
-<p>Work in progress</p>
+<div class='work-container'>
+    <div class='work-title'>My Work</div>
+
+    <div>
+        Professionally, I am drawn to the art of creation, 
+        which manifests in my role as a software developer. 
+        I possess an aptitude for organization and a keen sense of 
+        prioritizing my time and efforts—skills that have also propelled 
+        me into managing projects. 
+    </div>
+
+    <% @work.each do |work_exp| %>
+        <hr>
+        <%= render partial: 'experience', object: work_exp, as: 'exp' %>
+    <% end %>
+</div>
