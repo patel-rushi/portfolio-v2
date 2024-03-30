@@ -47,6 +47,11 @@ a{
 strong{
     font-weight: $semi-bold;
 }
+hr{
+    border: 0; 
+    height: 2px;
+    background-color: $medium-grey;
+}
 .link_to{
     font-weight: $regular;
     text-decoration: underline;
