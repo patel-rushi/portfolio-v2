@@ -1,23 +1,34 @@
+@import 'variables';
+
 .work-container{
     display: grid;
     margin-top: 3rem;
     gap: 1rem;
-    font-size: 1rem;
+    font-size: $normal;
 }
 .work-title{
-    font-size: 1.2rem;
+    font-size: $medium;
 }
 hr{
     width: 100%;
+}
+.work-summary{
+    font-weight: $light;
 }
 .exp-container{
     display: grid;
     gap: 1rem
 }
 .exp-title{
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: $normal;
+    font-weight: $bold;
 }
 .exp-company{
-    font-size: 1.1rem;
+    font-size: $normal;
+}
+.exp-duration{
+    font-size: $small;
+}
+.exp-description{
+    font-weight: $light;
 }

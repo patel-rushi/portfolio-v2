@@ -4,12 +4,13 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
+    font-weight: $light;
     .nav-link{
         text-decoration: none;
         cursor: pointer;
         color: inherit;
         &.active{
-            text-decoration: underline;
+            font-weight: $semi-bold;
         }
     }
 }
