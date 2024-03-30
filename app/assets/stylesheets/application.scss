@@ -44,6 +44,9 @@ a{
     text-decoration: none;
     color: inherit;
 }
+strong{
+    font-weight: $semi-bold;
+}
 .link_to{
     font-weight: $regular;
     text-decoration: underline;

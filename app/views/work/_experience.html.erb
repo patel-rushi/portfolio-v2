@@ -1,10 +1,10 @@
 <div class='exp-container'>
     <div>
         <div class='exp-title'><%= exp[:title] %></div>
-        <div class='exp-company'><%= exp[:company] %></div>
+        <div class='exp-company'><%= link_to exp[:company], exp[:link], class: "#{exp[:link].present? ? 'link_to' : ''}", target: "_blank" %>,</div>
         <div class='exp-duration'><%= exp[:duration] %></div>
     </div>
     <% exp[:description].each do |desc| %>
-        <div class='exp-description'><%= desc %></div>
+        <div class='exp-description'><%= desc.html_safe %></div>
     <% end %>
 </div>
