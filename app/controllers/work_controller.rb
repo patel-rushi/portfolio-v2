@@ -21,8 +21,19 @@ class WorkController < ApplicationController
                 duration: 'Sep 2022 - Apr 2023',
                 description: [
                     'As part of my entrepreneurial venture during the last two terms of my master`s degree, I co-founded a company aimed at <strong>reducing the time and money spent on resolving issue tickets</strong> for mid-size companies.',
-                    'We initially conceived a user feedback tool but underwent several pivots while engaging with company owners before ultimately arriving at Marsha-AI. <strong>Through analysis of over 10,000 tickets</strong> from <strong><u><a href="https://noibu.com/" target="_blank">Noibu</a></u></strong> and <strong><u><a href="https://cliniconex.com/" target="_blank">Cliniconex</a></strong></u>, we identified that the vast majority of tickets were related to seeking assistance to complete tasks. Consequently, Marsha-AI was designed to alleviate the burden of issue tickets by empowering companies to <strong>automatically generate user-interactive guides</strong> that facilitate users in accomplishing their objectives.',
+                    'We initially conceived a user feedback tool but underwent several pivots while engaging with company owners before ultimately arriving at Marsha-AI. <strong>Through analysis of over 5000 tickets</strong> from <strong><u><a href="https://noibu.com/" target="_blank">Noibu</a></u></strong> and <strong><u><a href="https://cliniconex.com/" target="_blank">Cliniconex</a></strong></u>, we identified that the vast majority of tickets were related to seeking assistance to complete tasks. Consequently, Marsha-AI was designed to alleviate the burden of issue tickets by empowering companies to <strong>automatically generate user-interactive guides</strong> that facilitate users in accomplishing their objectives.',
                     'I led the <strong>product development</strong> and <strong>design</strong> of a comprehensive offering from ideation to launch. Involved in the recruitment of two developers and management of a total of a six-member team (including founding members). I established a shared vision and <strong>prioritized features</strong> for product delivery.',
+                ]
+            },
+            { 
+                title: 'Co-op/Intern Developer', 
+                company: 'HPC Sphere | Ellipsis Infotech', 
+                link: '',
+                duration: 'Feb - Jul 2021 | Apr - Aug 2019',
+                description: [
+                    'These two internships laid the foundation for my journey into the software development world.',
+                    'At Ellipsis, I worked on the company\'s internal portal, where I was introduced to essential development tools such as VS Code, Git version control, my first development language (C#), web framework (.NET), databases, and more.',
+                    'At HPC Sphere, I worked on my first real client project and web application. I learned how to build a responsive UI, utilize modern front-end frameworks (Vue.js), a less-modern back-end framework (Laravel), integrate APIs, manage authentication (logins & signups), host web apps, and resolve technical issues related to website hosting, such as configuring SSH certificates.'
                 ]
             },
         ]
