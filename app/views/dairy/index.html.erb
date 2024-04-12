@@ -1,1 +1,10 @@
-<p>Work in progress</p>
+<div class = "dairy-container">
+    <% @blog_posts.each do |post| %>
+        <%= render partial: 'card', locals: { post: post } %>
+    <% end %>
+    <p>
+        <%=link_to 'View all my posts', 'https://world.hey.com/rushi.patel', class: 'link_to' %>
+        <i class="fas fa-arrow-right"></i>
+    </p>
+    <p>P.S. I'll soon be building and migrating to my own blog right here.</p>
+</div>
