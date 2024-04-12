@@ -1,0 +1,10 @@
+<div class='edu-container'>
+    <div>
+        <div class='edu-title'><%= edu[:title] %></div>
+        <div class='edu-company'><%= link_to edu[:university], edu[:link], class: "#{edu[:link].present? ? 'link_to' : ''}", target: "_blank" %>,</div>
+        <div class='edu-duration'><%= edu[:duration] %></div>
+    </div>
+    <% edu[:description].each do |desc| %>
+        <div class='edu-description'><%= desc.html_safe %></div>
+    <% end %>
+</div>
