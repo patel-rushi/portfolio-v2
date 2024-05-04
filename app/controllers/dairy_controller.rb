@@ -18,7 +18,8 @@ class DairyController < ApplicationController
         title: entry.xpath('title').text,
         category: 'Dairy',
         url: entry.at_xpath('link[@rel="alternate"]')['href'],
-        published_at: entry.xpath('published').text
+        published_at: entry.xpath('published').text,
+        content: entry.xpath('content').text.to_s.gsub(/<\/?[^>]*>/, ' ').squish.truncate(400, omission: ' . . . .'),
       }
     end
   end

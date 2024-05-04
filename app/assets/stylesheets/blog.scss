@@ -5,11 +5,18 @@
     justify-content: space-between;
     padding: 0.8rem;
     align-items: center;
+    max-width: 50rem;
+}
+
+.blog-content img {
+    max-width: 100%;
+    height: auto;
 }
 
 .blog-text{
     display: flex;
     flex-direction: column;
+    width: 95%;
 }
 
 .blog-title{
