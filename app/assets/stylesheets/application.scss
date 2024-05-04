@@ -25,7 +25,7 @@
 }
 html {
     min-width: $screen-unreal;
-    background-color: $light-cream;
+    background-color: $white;
 }
 body{
     font-family: 'Geist', Helvetica, sans-serif; 
@@ -55,6 +55,7 @@ hr{
 .link_to{
     font-weight: $regular;
     text-decoration: underline;
+    text-decoration-color: $dark-grey;
 }
 .hey-im-rushi{
     font-weight: $regular;
@@ -62,16 +63,16 @@ hr{
     font-size: $large;
     margin: 2rem auto;
     i {
-        color: darkorange;
+        color: $dark-orange;
         display: inline-block;
         animation: right-to-left 0.5s ease-in-out 3;
-        //color: lightcoral
     }
 }
 .card{
     border-radius: 10px;
     border: 1px solid $medium-grey;
-    background-color: $white;
+    background-color: $light-grey;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 @keyframes right-to-left {
     0%, 100% {
