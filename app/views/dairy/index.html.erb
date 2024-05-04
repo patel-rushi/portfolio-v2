@@ -1,6 +1,6 @@
 <div class = "dairy-container">
     <% @blog_posts.each do |post| %>
-        <%= render partial: 'card', locals: { post: post } %>
+        <%= render partial: 'shared/card', locals: { post: post } %>
     <% end %>
     <p>
         <%=link_to 'View all my posts', 'https://world.hey.com/rushi.patel', class: 'link_to' %>

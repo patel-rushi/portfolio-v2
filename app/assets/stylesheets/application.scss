@@ -17,7 +17,7 @@
 @import 'font-awesome';
 @import "home";
 @import "navbar";
-@import "blog";
+@import "card";
 @font-face {
     font-family: 'Geist';
     src: font-url('GeistVariableVF.woff2');
@@ -67,12 +67,6 @@ hr{
         display: inline-block;
         animation: right-to-left 0.5s ease-in-out 3;
     }
-}
-.card{
-    border-radius: 10px;
-    border: 1px solid $medium-grey;
-    background-color: $light-grey;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 @keyframes right-to-left {
     0%, 100% {

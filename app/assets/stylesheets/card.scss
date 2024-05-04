@@ -1,16 +1,18 @@
 @import 'variables';
 
+.card{
+    border-radius: 10px;
+    border: 1px solid $medium-grey;
+    background-color: $light-grey;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
 .blog-card{
     display: flex;
     justify-content: space-between;
     padding: 0.8rem;
     align-items: center;
     max-width: 50rem;
-}
-
-.blog-content img {
-    max-width: 100%;
-    height: auto;
 }
 
 .blog-text{
@@ -27,3 +29,14 @@
     font-weight: $light;
     font-size: $small;
 }
+
+.blog-content {
+    font-size: $normal;
+    font-weight: $light;
+}
+
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+}
+
