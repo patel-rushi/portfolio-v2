@@ -1,7 +1,7 @@
 <a href="<%= post[:url] %>" target="_blank" class='card blog-card'>
     <div class='blog-text'>
         <div class='blog-title'><%= post[:title] %></div>
-        <div class='blog-category'><%= post[:category] %></div>
+        <div class='blog-category'><%= post[:category] %> on <%= post[:published_at].to_date.strftime('%b %d, %Y') %></div>
         <div class='blog-content'>
             <%= raw post[:content] %>
         </div>
