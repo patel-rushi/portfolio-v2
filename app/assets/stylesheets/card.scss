@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.8rem;
+    gap: 20px;
     align-items: center;
     max-width: 50rem;
 }
@@ -18,7 +19,6 @@
 .blog-text{
     display: flex;
     flex-direction: column;
-    width: 95%;
 }
 
 .blog-title{
@@ -33,6 +33,7 @@
 .blog-content {
     font-size: $normal;
     font-weight: $light;
+    text-align: justify;
 }
 
 .blog-content img {

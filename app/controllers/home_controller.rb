@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       category: 'Tech',
       url: 'https://www.linkedin.com/posts/rushipatel-_design-projectmanagement-softwaredevelopment-activity-7173534615876292608-Kmea?utm_source=share&utm_medium=member_desktop',
       published_at: 'Apr 05, 2024',
-      content: content.squish.truncate(250, omission: ' . . . .'),
+      content: content.squish.truncate(200, omission: ' . . . .'),
     }]
   end
 end
