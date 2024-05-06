@@ -41,12 +41,16 @@
 .tech-stack-icon-div{
     display: flex;
     gap: 1rem;
+    justify-content: flex-start;
 }
 .tech-stack-card{
     margin-top: 1rem;
     width: fit-content;
     height: 2rem;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
         width: 100%;
         height: 100%;
@@ -72,6 +76,13 @@
         "paris-speaking convocation-degree-certificate"
         "paris-speaking convocation-degree-certificate"
         "paris-speaking convocation-degree-certificate"
+    }
+}
+@media (max-width: $screen-sm) {
+    .tech-stack-card{
+        img{
+            height: 80%;
+        }
     }
 }
 
