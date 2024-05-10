@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :dairy, only: [:index]
   resources :tech, only: [:index]
   
+  get '/login', to: 'sessions#login'  
+  post '/login', to: 'sessions#create', as: :session
   # Defines the root path route ("/")
   # root "posts#index"
 end
