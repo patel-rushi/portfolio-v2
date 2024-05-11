@@ -23,7 +23,7 @@
           <div class="close">&times;</div>
         </div>
         <div class="blog-content">
-            <%= raw post[:content] %>
+          <%= raw post[:embed] || post[:content] %>
         </div>
     </div>
 </div>
