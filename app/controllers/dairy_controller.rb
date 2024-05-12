@@ -15,11 +15,12 @@ class DairyController < ApplicationController
 
     document.xpath('//entry').map do |entry|
       {
+        id: entry.xpath('id').text.split('/').last,
         title: entry.xpath('title').text,
         category: 'Dairy',
         url: entry.at_xpath('link[@rel="alternate"]')['href'],
         published_at: entry.xpath('published').text,
-        content: entry.xpath('content').text.to_s.gsub(/<\/?[^>]*>/, ' ').squish.truncate(400, omission: ' . . . .'),
+        content: entry.xpath('content').text,
       }
     end
   end
