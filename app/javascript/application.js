@@ -3,7 +3,7 @@ import "@hotwired/turbo-rails"
 import { showPopup, hidePopup } from "./popup"
 
 
-document.addEventListener('DOMContentLoaded', () => {
+function attachEventListeners() {
     // Show popup
     document.querySelectorAll('.card.blog-card').forEach(card => {
         card.addEventListener('click', (e) => {
@@ -29,4 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hidePopup(postId);
         }
     });
-});
+}
+// Listen for Turbo events
+document.addEventListener('turbo:load', attachEventListeners);
