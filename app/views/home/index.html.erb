@@ -8,20 +8,18 @@
     
     <%= render 'image_grid' %>
     
-    <p>Professionally, I am drawn to the art of creation, 
+    <div>Professionally, I am drawn to the art of creation, 
     which manifests in my role as a 
-    <%=link_to 'software developer', work_index_path, class: 'link_to' %>. 
+    <span class='semi-bold'>software developer</span>. 
     I am good at organizing and I have a keen sense of prioritizing 
-    my time and efforts—skills that have propelled me into 
-    <%=link_to 'managing projects', work_index_path, class: 'link_to' %>.
+    my time and efforts—skills that have propelled me into
+    <%= render partial: 'shared/link', locals: { post: @home_blog_posts[:link_managing_projects] } %>
     I also enjoy studying how people think, behave and interact-a skill that enables me to
-    <%=link_to 'design solutions', work_index_path, class: 'link_to' %>.
-    </p>
+    <span class='semi-bold'>design solutions</span>. 
+    </div>
     
     <div class='home-tech-post-div'>
-        <% @home_blog_posts.each do |post| %>
-            <%= render partial: 'shared/card', locals: { post: post } %>
-        <% end %>
+        <%= render partial: 'shared/card', locals: { post: @home_blog_posts[:card] } %>
         <div>
             <i class="fas fa-arrow-right"></i>
             <%=link_to 'See all tech posts', tech_index_path, class: 'link_to' %>

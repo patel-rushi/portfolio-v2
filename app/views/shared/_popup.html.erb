@@ -1,0 +1,16 @@
+<div id="popup-<%= post[:id] %>" class="popup" data-post-id="<%= post[:id] %>">
+    <div class="popup-content">
+        <div class="popup-heading">
+          <div class='blog-title'>
+            <%= post[:title] %>
+            <% if post[:embed] %>
+              <a class="link_to" target="_blank" href="<%= post[:url] %>">(<%= post[:category] %>)</a>
+            <% end %>
+          </div>
+          <div class="close">&times;</div>
+        </div>
+        <div class="blog-content">
+          <%= raw post[:embed] || post[:content] %>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@
     <div class='blog-text'>
         <div class='blog-title'><%= post[:title] %></div>
         <div class='blog-category'><%= post[:category] %> 
-         <% if !post[:published_at].empty? %>
+        <% if !post[:published_at].empty? %>
             on <%= post[:published_at].to_date.strftime('%b %d, %Y') %>
         <% end %>
         </div>
@@ -16,14 +16,4 @@
 </a>
 
 <!-- Popup element -->
-<div id="popup-<%= post[:id] %>" class="popup" data-post-id="<%= post[:id] %>">
-    <div class="popup-content">
-        <div class="popup-heading">
-          <div class='blog-title'><%= post[:title] %></div>
-          <div class="close">&times;</div>
-        </div>
-        <div class="blog-content">
-          <%= raw post[:embed] || post[:content] %>
-        </div>
-    </div>
-</div>
+<%= render partial: 'shared/popup', locals: {post: post} %>

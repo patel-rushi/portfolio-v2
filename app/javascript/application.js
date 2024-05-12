@@ -5,7 +5,7 @@ import { showPopup, hidePopup } from "./popup"
 
 function attachEventListeners() {
     // Show popup
-    document.querySelectorAll('.card.blog-card').forEach(card => {
+    document.querySelectorAll('.card.blog-card, .link_pop_up').forEach(card => {
         card.addEventListener('click', (e) => {
         e.preventDefault();
         const postId = card.getAttribute('data-post-id');
