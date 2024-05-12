@@ -13,7 +13,6 @@ module FeedFetcher
         {
           id: entry.xpath('id').text.split('/').last,
           title: entry.xpath('title').text,
-          url: entry.at_xpath('link[@rel="alternate"]')['href'],
           published_at: entry.xpath('published').text,
           content: entry.xpath('content').text,
         }
