@@ -1,6 +1,4 @@
-<a href="#" class='link_to link_pop_up' data-post-id="<%= post[:id] %>">
-    <%= post[:name] %>
-</a>
+<a href="#" class='link_to link_pop_up' data-post-id="<%= post[:id] %>"><%= post[:name] %></a>
 
 <!-- Popup element -->
 <%= render partial: 'shared/popup', locals: {post: post} %>

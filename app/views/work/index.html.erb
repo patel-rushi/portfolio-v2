@@ -4,9 +4,10 @@
     <div class='work-summary'>
         On a daily basis, I utilize my software skills to bring ideas to life, 
         continually refining them along the way. I enjoy 
-        <%=link_to 'comprehending user needs', tech_index_path, class: 'link_to' %>
+        comprehending user needs
         and transforming them into practical, 
-        efficient solutions. Here's all about my professional journey thus far:
+        <%= render partial: 'shared/link', locals: { post: @home_blog_posts[:link_efficient_solutions] } %>
+        Here's all about my professional journey thus far:
     </div>
 
     <% @work.each do |work_exp| %>
