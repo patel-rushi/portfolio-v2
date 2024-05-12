@@ -31,7 +31,7 @@ html {
 }
 body{
     font-family: 'Geist', Helvetica, sans-serif; 
-    font-weight: $regular;
+    font-weight: $light;
     font-size: $normal;
     width: 45rem;
     margin: 2rem auto 4rem auto;
@@ -49,6 +49,9 @@ a{
 }
 strong, b{
     font-weight: $semi-bold;
+}
+.semi-bold{
+    font-weight: $regular;
 }
 hr{
     border: 0; 
