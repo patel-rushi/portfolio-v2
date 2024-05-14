@@ -62,7 +62,7 @@
     display: block;
 }
 
-.popup-heading{
+.popup-heading {
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -106,4 +106,16 @@
 /* When the popup is displayed, disable main screen's scroll */
 body.popup-active {
     overflow: hidden;
+}
+
+@media (max-width: $screen-md) {
+    .custom-height{
+        height: 400px;
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .custom-height{
+        height: 2300px;
+    }
 }

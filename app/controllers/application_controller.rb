@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
         url: 'https://www.linkedin.com/posts/rushipatel-_design-projectmanagement-softwaredevelopment-activity-7173534615876292608-Kmea?utm_source=share&utm_medium=member_desktop',
         published_at: 'Apr 05, 2024',
         content: content.squish.truncate(200, omission: ' . . . .'),
-        embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7173534613187846144" height="1200" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>', 
+        embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7173534613187846144" height="1500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post" class="custom-height"></iframe>', 
       },
 
       link_managing_projects: {
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
         url: 'https://www.linkedin.com/posts/rushipatel-_managing-a-busy-project-boils-down-to-two-activity-7127790488253779968-qb4z?utm_source=share&utm_medium=member_desktop',
         published_at: '',
         content: '',
-        embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7127790487771525120" height="250" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
+        embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7127790487771525120" height="250" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
       },
 
       link_efficient_solutions: {
