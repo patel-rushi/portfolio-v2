@@ -41,7 +41,7 @@
 .tech-stack-icon-div{
     display: flex;
     gap: 1rem;
-    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 .tech-stack-card{
     margin-top: 1rem;
@@ -49,10 +49,10 @@
     height: 2rem;
     padding: 10px;
     display: flex;
+    gap: 8px;
     align-items: center;
     justify-content: center;
     img{
-        width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
@@ -64,6 +64,12 @@
 .home-tech-post-div{
     display: grid;
     gap: 1rem;
+}
+.react-icon-sm{
+    display: none;
+}
+.react-icon-lg{
+    display: block;
 }
 @media (max-width: $screen-md) {
     .image-grid {
@@ -83,6 +89,17 @@
         img{
             height: 80%;
         }
+    }
+}
+@media (max-width: $screen-xs) {
+    .tech-stack-icon-div{
+        gap: 0.4rem;
+    }
+    .react-icon-sm{
+        display: block;
+    }
+    .react-icon-lg{
+        display: none;
     }
 }
 
