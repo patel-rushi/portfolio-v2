@@ -1,10 +1,23 @@
 <div class = "dairy-container">
-    <% @blog_posts.each do |post| %>
-        <%= render partial: 'shared/card', locals: { post: post } %>
-    <% end %>
-    <p>
-        <%=link_to 'Subscribe or view more posts', 'https://world.hey.com/rushi.patel?page=eyJwYWdlX251bWJlciI6MiwidmFsdWVzIjp7ImNyZWF0ZWRfYXQiOiIyMDIzLTEyLTI0VDE5OjM2OjAxLjU1ODc5M1oiLCJpZCI6MzM3NjV9fQ%3D%3D', class: 'link_to', target: '_blank' %>
-        <i class="fas fa-arrow-right"></i>
-    </p>
-    <p>P.S. I'll soon be building and migrating to my own blog right here.</p>
+    <div class='dairy-title'>My Dairy</div>
+
+    <div class='dairy-summary'>
+        I'm mapping my own journey of evolution by sharing my thoughts in this space. 
+        Posting them publicly feels a bit naive to me, but I don't want to keep them 
+        locked up in my notes either. My thoughts are constantly evolving, and I want 
+        to see them improve. Sharing them here seems like a good way to track my personal progress.
+        Most of the time, I'll be addressing myself here, but feel free to shoot me a DM or email 
+        if any of these thoughts spark a desire to talk. Happy reading!
+    </div>
+
+    <div class='dairy-post-container'>
+        <% @blog_posts.each do |post| %>
+            <%= render partial: 'shared/card', locals: { post: post } %>
+        <% end %>
+        <p>
+            <%=link_to 'Subscribe or view more posts', 'https://world.hey.com/rushi.patel?page=eyJwYWdlX251bWJlciI6MiwidmFsdWVzIjp7ImNyZWF0ZWRfYXQiOiIyMDIzLTEyLTI0VDE5OjM2OjAxLjU1ODc5M1oiLCJpZCI6MzM3NjV9fQ%3D%3D', class: 'link_to', target: '_blank' %>
+            <i class="fas fa-arrow-right"></i>
+        </p>
+        <p>P.S. I'll soon be building and migrating all my posts right here.</p>
+    </div>
 </div>

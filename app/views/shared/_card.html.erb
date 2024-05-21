@@ -1,17 +1,21 @@
 <a href="#" class='card blog-card' data-post-id="<%= post[:id] %>">
     <div class='blog-text'>
-        <div class='blog-title'><%= post[:title] %></div>
-        <div class='blog-category'><%= post[:category] %> 
-        <% if !post[:published_at].empty? %>
-            on <%= post[:published_at].to_date.strftime('%b %d, %Y') %>
-        <% end %>
+        <div class='blog-header'>
+            <div>
+                <div class='blog-title'><%= post[:title] %></div>
+                <div class='blog-category'><%= post[:category] %> 
+                <% if !post[:published_at].empty? %>
+                    on <%= post[:published_at].to_date.strftime('%b %d, %Y') %>
+                <% end %>
+                </div>
+            </div>
+            <div class='blog-arrow'>
+                <i class="fa-solid fa-expand"></i>
+            </div>
         </div>
         <div class='blog-content'>
             <%= raw truncate(post[:content], 400) %>
         </div>
-    </div>
-    <div class='blog-arrow'>
-        <i class="fas fa-arrow-right"></i>
     </div>
 </a>
 

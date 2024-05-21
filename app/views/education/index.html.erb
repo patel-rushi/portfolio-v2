@@ -3,12 +3,11 @@
 
     <div class='education-summary'>
         After completing my undergraduate studies in the field of Computer Science, 
-        I wanted to give my entrepreneurial desire a chance. 
-        Read <%=link_to 'why I chose entrepreneurship', '#', class: 'link_to' %>.
-        It's definitely one of the riskiest decisions I've made.
-        Read 
-        <%=link_to 'more about it', '#', class: 'link_to' %>.
-        Here's all about my education history:
+        I wanted to give my entrepreneurial desire a chance.
+        It was definitely one of the riskiest decisions I made at that time.
+        Here's
+        <%= render partial: 'shared/link', locals: { post: @home_blog_posts[:more_about_entrp_experience] } %>
+        All about my education history:
     </div>
 
     <% @education.each do |edu| %>

@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
       link_efficient_solutions: {
         id: 'efficient-solutions',
-        name: 'efficient solutions',
+        name: 'efficient solutions.',
         title: 'Efficient Solutions',
         category: 'Linkedin Post',
         url: 'https://www.linkedin.com/posts/rushipatel-_prioritizing-quality-activity-7130743980266283009-QbPQ?utm_source=share&utm_medium=member_desktop',
@@ -41,6 +41,17 @@ class ApplicationController < ActionController::Base
         content: '',
         embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7130743979674886145" height="300" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
       },
+
+      more_about_entrp_experience: {
+        id: 'more-about-entrp-exp',
+        name: 'what I learnt.',
+        title: 'Entrepreneurship learnings',
+        category: 'Linkedin Post',
+        url: 'https://www.linkedin.com/posts/rushipatel-_last-week-marked-the-end-of-my-wonderful-activity-7060092980040212480-4VV8?utm_source=share&utm_medium=member_desktop',
+        published_at: '',
+        content: '',
+        embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7060092977200668672" height="800" width="100%" frameborder="0" allowfullscreen="" title="Embedded post" class="custom-height"></iframe>',
+      }
     }
   end
 end

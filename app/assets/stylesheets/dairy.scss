@@ -1,5 +1,19 @@
+@import 'variables';
+
 .dairy-container{
+    display: grid;
     margin-top: 3rem;
+    gap: 1rem;
+    font-size: $normal;
+}
+.dairy-title{
+    font-size: $medium;
+}
+.dairy-summary{
+    font-weight: $light;
+}
+.dairy-post-container{
+    margin-top: 1rem;
     display: grid;
     gap: 1rem;
 }

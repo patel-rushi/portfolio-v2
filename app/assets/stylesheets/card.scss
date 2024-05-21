@@ -12,19 +12,18 @@
 }
 
 .blog-card{
-    display: flex;
-    justify-content: space-between;
     padding: 0.8rem;
-    gap: 20px;
-    align-items: center;
     max-width: 50rem;
 }
-
 .blog-text{
     display: flex;
     flex-direction: column;
 }
-
+.blog-header{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
 .blog-title{
     font-weight: $semi-bold;
 }
@@ -116,6 +115,6 @@ body.popup-active {
 
 @media (max-width: $screen-sm) {
     .custom-height{
-        height: 2300px;
+        height: 450px;
     }
 }

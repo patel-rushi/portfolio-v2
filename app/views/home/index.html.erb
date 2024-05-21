@@ -11,11 +11,11 @@
     <div>Professionally, I am drawn to the art of creation, 
     which manifests in my role as a 
     <span class='semi-bold'>software developer</span>. 
-    I am good at organizing and I have a keen sense of prioritizing 
+    I am good at organizing and have a keen sense of prioritizing 
     my time and efforts—skills that have propelled me into
     <%= render partial: 'shared/link', locals: { post: @home_blog_posts[:link_managing_projects] } %>
-    I also enjoy studying how people think, behave and interact-a skill that enables me to
-    <span class='semi-bold'>design solutions</span>. 
+    I enjoy studying how people think, behave and interact-a skill that enables me to
+    <span class='semi-bold'>design solutions</span> that users love using!
     </div>
     
     <div class='home-tech-post-div'>
@@ -28,9 +28,10 @@
 
     <p>
         I prefer not to limit myself to just one profession; 
-        I often engage in multiple tasks that are completely different 
-        but necessary for the job. I fundamentally believe that having 
-        the right mindset is essential for producing exceptional work in any field.
+        I often engage in multiple tasks that are different 
+        but necessary for the job. 
+        I believe that having the right mindset is essential for producing exceptional work in any field.
+        I also try to leave things in better shape than I found them.
     </p>
     <div>
         <p>I work best with down-to-earth, inspiring people, and technically with 
@@ -38,12 +39,18 @@
         <b>React</b>, 
         plain <b>JavaScript</b>, 
         and plain <b>(S)CSS</b>. 
-        Plus, I have a keen eye for making designs look just right.</p>
+        Plus, I have a keen eye for making designs look just right!</p>
         <%= render 'tech_stack'%>
     </div>
 
     <div class='follow-me'>
-        <i class="fas fa-arrow-right"></i> 
-        <a href="https://www.linkedin.com/in/rushipatel-" target="_blank">Connect with me on <i class="fab fa-linkedin"></i></a>
+        <div>
+            <i class="fas fa-arrow-right"></i> 
+            <a href="https://www.linkedin.com/in/rushipatel-" target="_blank">Connect with me on <i class="fab fa-linkedin"></i></a>
+        </div>
+        <div style="margin-top: 0.5rem;">
+            <i class="fas fa-arrow-right"></i> 
+            <a href="https://github.com/patel-rushi" target="_blank">Checkout source code on <i class="fab fa-github"></i></a>
+        </div>
     </div>
 </div>
