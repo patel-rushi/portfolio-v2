@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
       link_managing_projects: {
         id: 'managing-projects',
-        name: 'managing projects',
+        name: 'managing projects.',
         title: 'Managing Projects',
         category: 'Linkedin Post',
         url: 'https://www.linkedin.com/posts/rushipatel-_managing-a-busy-project-boils-down-to-two-activity-7127790488253779968-qb4z?utm_source=share&utm_medium=member_desktop',
