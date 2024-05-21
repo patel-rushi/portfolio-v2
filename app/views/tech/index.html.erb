@@ -4,6 +4,12 @@
             No tech posts available at the moment. Please check back later!
         </div>
     <% else %>
+        <div class='dairy-title'>Tech Posts</div>
+
+        <div class='dairy-summary'>
+            I write about software development, user experience, project management, or anything else that I learn. 
+            I'm aggregating my tech posts and adding some new ones. You'll find more posts here very soon!
+        </div>
         <% @tech_posts.each do |post| %>
             <%= render partial: 'shared/card', locals: { post: post } %>
         <% end %>
@@ -13,5 +19,5 @@
         <i class="fab fa-linkedin"></i>
         <i class="fas fa-arrow-right"></i>
     </p>
-    <p>P.S. I'll soon be building and migrating to my own blog right here.</p>
+    <p>P.S. I'll soon be migrating all my posts to right here.</p>
 </div>
