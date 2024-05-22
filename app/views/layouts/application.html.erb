@@ -12,6 +12,16 @@
     <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
   </head>
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(:google_analytics_tag) %>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '<%= Rails.application.credentials.dig(:google_analytics_tag) %>');
+  </script>
+
   <body>
     <% if current_page?(root_url)%>
       <div class='hey-im-rushi'>
