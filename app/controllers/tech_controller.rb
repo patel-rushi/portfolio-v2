@@ -45,7 +45,7 @@ class TechController < ApplicationController
 
         # Construct the iframe tag with the extracted URL
         iframe_html = if iframe_url
-                        "<iframe src=\"#{iframe_url}\" height=\"#{iframe_height || '1000'}\" width=\"96%\" frameborder=\"0\" allowfullscreen title=\"Embedded post\" class=\"custom-height\"></iframe>"  
+                        "<iframe src=\"#{iframe_url}\" height=\"#{iframe_height || '1000'}\" width=\"100%\" frameborder=\"0\" allowfullscreen title=\"Embedded post\" class=\"custom-height\"></iframe>"  
                     end
 
         [iframe_html, post_url]
