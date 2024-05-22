@@ -110,12 +110,18 @@ body.popup-active {
 
 @media (max-width: $screen-md) {
     .custom-height{
-        height: 400px;
+        height: 450px;
     }
 }
 
 @media (max-width: $screen-sm) {
     .custom-height{
-        height: 450px;
+        height: 400px;
+    }
+}
+
+@media (max-width: $screen-xs) {
+    .custom-height{
+        height: 380px;
     }
 }
