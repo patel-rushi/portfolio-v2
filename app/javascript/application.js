@@ -1,7 +1,9 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import { showPopup, hidePopup } from "popup"
+import { sendGtagEvent } from "./tracking"
 
+window.sendGtagEvent = sendGtagEvent;
 
 function attachEventListeners() {
     // Show popup

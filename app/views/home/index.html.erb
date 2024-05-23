@@ -2,7 +2,7 @@
     <p>I'm a seeker, who's on a quest for truth, 
     constantly striving to evolve and explore the deeper 
     dimensions of my being, beyond the ephemeral. 
-    <%= link_to 'Follow my personal journey of evolution', dairy_index_path, class: 'link_to' %>
+    <%= link_to 'Follow my personal journey of evolution', dairy_index_path, class: 'link_to', onclick: "sendGtagEvent('link_click', 'inbound', 'Follow my personal journey of evolution');" %>
     <i class="fas fa-arrow-right"></i> 
     </p>
     
@@ -22,7 +22,7 @@
         <%= render partial: 'shared/card', locals: { post: @home_blog_posts[:card] } %>
         <div>
             <i class="fas fa-arrow-right"></i>
-            <%=link_to 'See all tech posts', tech_index_path, class: 'link_to' %>
+            <%=link_to 'See all tech posts', tech_index_path, class: 'link_to', onclick: "sendGtagEvent('link_click', 'inbound', 'See all tech posts');" %>
         </div>
     </div>
 
@@ -46,11 +46,16 @@
     <div class='follow-me'>
         <div>
             <i class="fas fa-arrow-right"></i> 
-            <a href="https://github.com/patel-rushi" target="_blank">Checkout source code on <i class="fab fa-github"></i></a>
+            <a href="https://github.com/patel-rushi" target="_blank" onclick="sendGtagEvent('link_click', 'outbound', 'GitHub');">Checkout source code on <i class="fab fa-github"></i></a>
         </div>
         <div style="margin-top: 1rem;">
             <i class="fas fa-arrow-right"></i> 
-            <a href="https://www.linkedin.com/in/rushipatel-" target="_blank">Connect with me on <i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/rushipatel-" target="_blank" onclick="sendGtagEvent('link_click', 'outbound', 'Linkedin');">Connect with me on <i class="fab fa-linkedin"></i></a>
         </div>
     </div>
 </div>
+
+<script type="module">
+    import { sendGtagEvent } from "tracking"
+    sendGtagEvent('views_per_page', 'page_view', 'Home');
+</script>

@@ -15,9 +15,14 @@
         <% end %>
     <% end %>
     <p>
-        <%=link_to 'View all my tech posts on', 'https://www.linkedin.com/in/rushipatel-/recent-activity/all/', class: 'link_to', target: '_blank'  %>
+        <%=link_to 'View all my tech posts on', 'https://www.linkedin.com/in/rushipatel-/recent-activity/all/', class: 'link_to', target: '_blank', onclick: "sendGtagEvent('link_click', 'outbound', 'View all my tech posts');" %>
         <i class="fab fa-linkedin"></i>
         <i class="fas fa-arrow-right"></i>
     </p>
     <p>P.S. I'll soon be migrating all my posts to right here.</p>
 </div>
+
+<script type="module">
+    import { sendGtagEvent } from "tracking"
+    sendGtagEvent('views_per_page', 'page_view', 'Tech');
+</script>

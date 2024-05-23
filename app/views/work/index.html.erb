@@ -15,3 +15,8 @@
         <%= render partial: 'experience', object: work_exp, as: 'exp' %>
     <% end %>
 </div>
+
+<script type="module">
+    import { sendGtagEvent } from "tracking"
+    sendGtagEvent('views_per_page', 'page_view', 'Work');
+</script>
