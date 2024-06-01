@@ -12,6 +12,7 @@ class WorkController < ApplicationController
                     'In October 2022, I started working on the <strong>Ottawa Inner City Health project</strong>, one of our largest projects. It comprises two apps to digitalize record-keeping and workflows for nurses at walk-in clinics. I implemented major features and resolved bugs according to client requirements. The apps are built using <strong>Ruby on Rails, plain JS, CSS</strong> and <strong>React.js</strong> components.',
                     'In August 2023, I took on more responsibilities and assumed <strong>full responsibility for managing the Ottawa Inner City Health and XP Courier projects </strong>. I began engaging with clients, gathering requirements, designing solutions, managing tasks, estimating timelines, assigning tasks to developers, conducting code reviews, and overseeing testing and deployment.',
                     #'Presently, I am also leading product development, project management, and recruitment efforts.'
+                    'Presently, I am contributing features and managing the Ottawa Inner City Health and XP courier apps.'
                 ]
             },
             # { 
