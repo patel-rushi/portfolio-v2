@@ -9,6 +9,16 @@ class ApplicationController < ActionController::Base
     We don’t follow a specific technique out of a book. We work in small groups, and an individual often handles multiple tasks. Here's what works for us:
     Firstly, we immerse ourselves in the client's perspective, anticipating their needs. We delve into how they utilize the software, the type of data they handle, and the origin of their inventory management needs. Do they require a comprehensive system or a streamlined solution? Understanding their workflow helps us determine optimal placements for features and gauge complexity."
 
+    marsha_ai_experience = %(
+      <p>As part of my entrepreneurial venture during the last two terms of my master's degree, I co-founded a company aimed at <strong>reducing the time and money spent on resolving issue tickets</strong> for mid-size companies.</p>
+      <br>
+      <p>We initially conceived a user feedback tool but underwent several pivots while engaging with company owners before ultimately arriving at Marsha-AI. <strong>Through analysis of over 5000 tickets</strong> from <a href=\"https://noibu.com/\" target=\"_blank\"><strong><u>Noibu</u></strong></a> and <a href=\"https://cliniconex.com/\" target=\"_blank\"><strong><u>Cliniconex</u></strong></a>, we identified that the vast majority of tickets were related to seeking assistance to complete tasks. Consequently, Marsha-AI was designed to alleviate the burden of issue tickets by empowering companies to <strong>automatically generate user-interactive guides</strong> that facilitate users in accomplishing their objectives.</p>
+      <br>
+      <p>I led the <strong>product development</strong> and <strong>design</strong> of a comprehensive offering from ideation to launch. Involved in the recruitment of two developers and management of a total of a six-member team (including founding members). I established a shared vision and <strong>prioritized features</strong> for product delivery.</p>
+      <br>
+      <p>We decided to <strong>shut down</strong> operations shortly after graduation after realizing that there are tools available to generate user guides manually and companies prefer human interventions over automation for things that will go live on their software.</p>
+    ).squish
+
     @home_blog_posts = {
       card:  {
         id: 'home-blog-post',
@@ -51,7 +61,19 @@ class ApplicationController < ActionController::Base
         published_at: '',
         content: '',
         embed: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7060092977200668672" height="800" width="100%" frameborder="0" allowfullscreen="" title="Embedded post" class="custom-height"></iframe>',
-      }
+      },
+      marsha_ai_experience: {
+        id: 'marsha-ai-experience',
+        name: 'Marsha-AI',
+        title: 'Marsha-AI Experience',
+        content: marsha_ai_experience
+      },
+      read_more_marsha_ai_experience: {
+        id: 'read-more-marsha-ai-experience',
+        name: 'continue reading',
+        title: 'Marsha-AI Experience',
+        content: marsha_ai_experience
+      },
     }
   end
 end

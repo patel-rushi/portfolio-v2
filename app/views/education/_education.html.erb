@@ -5,6 +5,14 @@
         <div class='edu-duration'><%= edu[:duration] %></div>
     </div>
     <% edu[:description].each do |desc| %>
-        <div class='edu-description'><%= desc.html_safe %></div>
+        <% if desc.include?('[Marsha-AI]') || desc.include?('[Read more]') %>
+            <div class='edu-description'>
+                <%= desc.sub('[Marsha-AI]', render(partial: 'shared/link', locals: { post: @home_blog_posts[:marsha_ai_experience] }))
+                        .sub('[Read more]', render(partial: 'shared/link', locals: { post: @home_blog_posts[:read_more_marsha_ai_experience] }))
+                        .html_safe %>
+            </div>
+        <% else %>
+            <div class='edu-description'><%= desc.html_safe %></div>
+        <% end %>
     <% end %>
 </div>
