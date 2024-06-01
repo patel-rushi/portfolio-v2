@@ -9,7 +9,7 @@ class EducationController < ApplicationController
                 description: [
                     'As part of this unique master\'s program, I combined my knowledge of computer science with design and entrepreneurship.',
                     'It helped me learn about product development, management, design, generating progressive ideas for a company, and building and launching products.',
-                    'I founded Marsha-AI as a byproduct of this course. It taught me how to iterate, navigate through messes, and focus on things that truly matter to reach product-market fit.',
+                    'I co-founded [Marsha-AI] as a project. It taught me how to iterate, navigate through challenges, and focus on things that truly matter. . .[Read more]',
                 ]
             },
             {
