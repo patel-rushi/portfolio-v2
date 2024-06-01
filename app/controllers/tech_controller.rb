@@ -10,17 +10,27 @@ class TechController < ApplicationController
     private
 
     def fetch_tech_posts
-        fetch_feed_entries('https://world.hey.com/rushi.patel/feed.atom').map do |entry|
-          next unless entry.xpath('title').text.include?('[Tech]')
-          embed_iframe, post_url = extract_iframe_url(entry)
-          parse_entry(entry).merge(
+        all_entries = []
+        PAGE_PARAMS.each do |page_param|
+            page_url = "#{BASE_URL}#{page_param}"
+            entries = fetch_feed_entries(page_url).map do |entry|
+              next unless entry.xpath('title').text.include?('[Tech]')
+              extract_content_from_xml (entry)
+            end.compact
+            all_entries.concat(entries)
+        end
+        all_entries
+    end
+
+    def extract_content_from_xml (entry)
+        embed_iframe, post_url = extract_iframe_url(entry)
+        parse_entry(entry).merge(
             category: embed_iframe.present? ? 'Linkedin Post' : 'Tech', 
             title: entry.xpath('title').text.gsub('[Tech]', '').strip, 
             embed: embed_iframe,
             content: embed_iframe.present? ? 'Press to checkout post' :  entry.xpath('content').text,
             url: embed_iframe.present? ? post_url : ''
-          )
-        end.compact
+        )
     end
 
     def extract_iframe_url(entry)
