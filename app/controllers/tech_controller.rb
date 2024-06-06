@@ -5,6 +5,7 @@ class TechController < ApplicationController
 
     def index
         @tech_posts = fetch_tech_posts
+        @open_post_id = params[:id]
     end
 
     private

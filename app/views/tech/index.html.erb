@@ -23,6 +23,17 @@
 </div>
 
 <script type="module">
-    import { sendGtagEvent } from "tracking"
+    import { sendGtagEvent } from "tracking";
+    import { showPopup } from 'popup';
+
     sendGtagEvent('views_per_page', 'page_view', 'Tech');
+
+    <% if @open_post_id %>
+        sendGtagEvent('views_per_page', 'page_view', `tech/<%= @open_post_id %>`);
+        document.addEventListener('DOMContentLoaded', () => {
+            const openPostId = `<%= @open_post_id %>`;
+            console.log(`popup-${openPostId}`);
+            showPopup(openPostId);
+        });
+    <% end %>
 </script>
