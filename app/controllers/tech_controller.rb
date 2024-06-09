@@ -40,9 +40,10 @@ class TechController < ApplicationController
         content_fully_decoded = CGI.unescapeHTML(content_decoded_once)
         
         # Extract the URL for the iframe
-        url_regex = /href="([^"]+)"/
+        url_regex = /<iframe[^>]+src="\s*<a href="([^"]+)"/
         url_match = url_regex.match(content_fully_decoded)
-        iframe_url = url_match[1] if url_match
+        return [nil, nil] unless url_match
+        iframe_url = url_match[1]
 
         # Extract the height for the iframe
         height_regex = /height="(\d+)"/
