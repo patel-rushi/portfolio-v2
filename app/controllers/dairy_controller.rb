@@ -6,6 +6,7 @@ class DairyController < ApplicationController
   
   def index
     @blog_posts = fetch_dairy_posts
+    @open_post_id = params[:post]
   end
 
   private

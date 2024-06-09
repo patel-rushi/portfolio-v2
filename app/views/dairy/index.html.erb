@@ -25,5 +25,7 @@
 
 <script type="module">
     import { sendGtagEvent } from "tracking"
+    import { initializePopup } from "initializePopup";
+    initializePopup('<%= @open_post_id %>');
     sendGtagEvent('views_per_page', 'page_view', 'Dairy');
 </script>
