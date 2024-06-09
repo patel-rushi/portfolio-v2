@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :education, only: [:index]
   resources :dairy, only: [:index]
   resources :tech, only: [:index]
-  get 'tech/:id', to: 'tech#index', as: :tech_with_id
+  get 'tech', to: 'tech#index', as: :tech_with_id
   # Defines the root path route ("/")
   # root "posts#index"
 end
