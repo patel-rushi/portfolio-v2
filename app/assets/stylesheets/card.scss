@@ -44,6 +44,11 @@
     height: auto;
 }
 
+.extra-border-highlight{
+    box-shadow: 0 2px 10px 0 $dark-orange;
+    border: 1px solid $dark-orange;
+}
+
 /* Popup styles */
 .popup {
     display: none;
