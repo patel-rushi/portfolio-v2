@@ -37,3 +37,6 @@
 .DS_Store
 
 /config/credentials/production.key
+
+# Ignore node_modules
+node_modules/
