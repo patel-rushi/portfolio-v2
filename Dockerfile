@@ -13,8 +13,10 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
-# Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
+# Install curl, Node.js, and npm
+RUN apt-get update -qq && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs
 
 # Install pm2 globally
