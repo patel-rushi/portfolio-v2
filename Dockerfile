@@ -57,8 +57,12 @@ RUN apt-get update -qq && \
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
+# Ensure post-deploy.sh is executable
+RUN chmod +x /rails/post-deploy.sh
+
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
+    mkdir -p /home/rails/.npm /home/rails/.pm2 && \
     chown -R rails:rails /rails /usr/local/bundle /home/rails/.npm /home/rails/.pm2 db log storage tmp
 USER rails:rails
 
