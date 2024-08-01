@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@types/smtp-server": "^3.5.10",
+    "smtp-server": "^3.13.4"
+  },
+  "scripts": {
+    "start": "node app/javascript/smtp_server.js"
+  }
+}
