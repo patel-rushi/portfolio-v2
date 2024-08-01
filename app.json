@@ -1,7 +1,7 @@
 {
     "scripts": {
       "dokku": {
-        "postdeploy": "npm install && pm2 start app/javascript/smtp_server.js --name smtp-server"
+        "postdeploy": "./post-deploy.sh"
       }
     }
   }
