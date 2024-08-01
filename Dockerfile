@@ -13,6 +13,12 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs
+
+# Install pm2 globally
+RUN npm install -g pm2
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
