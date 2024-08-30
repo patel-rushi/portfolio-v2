@@ -2,17 +2,27 @@ class WorkController < ApplicationController
     def index
         @work = [
             { 
+                title: 'Intermediate Software Developer', 
+                company: 'Lightspeed Commerce', 
+                link: 'https://exploratorlabs.com/',
+                duration: 'Aug 2024 - Present',
+                description: [
+                    'Currently working with Lightspeed on the development of Chronogolf, a leading golf course management software.'
+                ]
+            },
+            { 
                 title: 'Software Developer II', 
                 company: 'Explorator Labs', 
                 link: 'https://exploratorlabs.com/',
-                duration: 'Feb 2022 - Present',
+                duration: 'Feb 2022 - Jul 2024',
                 description: [
                     'In November 2021, I was first introduced to <strong>Ruby on Rails (RoR)</strong>. I underwent personal training in RoR until February 2022. Thereafter, I began working with Explorator Labs, during which I worked on actual client projects, starting by writing test cases using <strong>Cypress</strong>.',
                     'In May 2022, I started working on the XP Courier Company`s project to develop their website and portal using Ruby on Rails and React.js. <strong>I honed my skills in Rails and React during this time</strong>. Additionally, I worked on the Pivot.jobs mobile app, built on React Native, where I fixed bugs and optimized the notification architecture using Firebase to reduce costs.',
                     'In October 2022, I started working on the <strong>Ottawa Inner City Health project</strong>, one of our largest projects. It comprises two apps to digitalize record-keeping and workflows for nurses at walk-in clinics. I implemented major features and resolved bugs according to client requirements. The apps are built using <strong>Ruby on Rails, plain JS, CSS</strong> and <strong>React.js</strong> components.',
                     'In August 2023, I took on more responsibilities and assumed <strong>full responsibility for managing the Ottawa Inner City Health and XP Courier projects </strong>. I began engaging with clients, gathering requirements, designing solutions, managing tasks, estimating timelines, assigning tasks to developers, conducting code reviews, and overseeing testing and deployment.',
                     #'Presently, I am also leading product development, project management, and recruitment efforts.'
-                    'Presently, I am contributing features and managing the Ottawa Inner City Health and XP courier apps.'
+                    #'Presently, I am contributing features and managing the Ottawa Inner City Health and XP courier apps.'
+                    'I left the Ottawa Inner City Health app in a state I\'m truly proud of, knowing our team built it from the ground up with excellence!',
                 ]
             },
             # { 
@@ -28,7 +38,7 @@ class WorkController < ApplicationController
             #     ]
             # },
             {
-                title: 'Co-op/Intern Developer', 
+                title: 'Web Developer (Co-op/Intern)', 
                 company: 'HPC Sphere', 
                 link: '',
                 duration: 'Feb - Jul 2021',
@@ -38,7 +48,7 @@ class WorkController < ApplicationController
                 ]
             },
             { 
-                title: 'Co-op/Intern Developer', 
+                title: 'Software Developer (Co-op/Intern)', 
                 company: 'Ellipsis Infotech', 
                 link: '',
                 duration: 'Apr - Aug 2019',
