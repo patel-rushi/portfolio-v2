@@ -4,7 +4,7 @@ class WorkController < ApplicationController
             { 
                 title: 'Intermediate Software Developer', 
                 company: 'Lightspeed Commerce', 
-                link: 'https://exploratorlabs.com/',
+                link: 'https://www.lightspeedhq.com/',
                 duration: 'Aug 2024 - Present',
                 description: [
                     'Currently working with Lightspeed on the development of Chronogolf, a leading golf course management software.'
