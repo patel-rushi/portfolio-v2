@@ -13,14 +13,6 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
-# Install curl, Node.js, and npm
-RUN apt-get update -qq && \
-    apt-get install -y curl && \
-    curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs
-
-# Install pm2 globally
-RUN npm install -g pm2
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
@@ -57,18 +49,14 @@ RUN apt-get update -qq && \
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
-# Ensure post-deploy.sh is executable
-RUN chmod +x /rails/post-deploy.sh
-
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
-    mkdir -p /home/rails/.npm /home/rails/.pm2 && \
-    chown -R rails:rails /rails /usr/local/bundle /home/rails/.npm /home/rails/.pm2 db log storage tmp
+    chown -R rails:rails db log storage tmp
 USER rails:rails
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000 25
+EXPOSE 3000
 CMD ["./bin/rails", "server"]
