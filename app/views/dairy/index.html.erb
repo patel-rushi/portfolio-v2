@@ -1,5 +1,15 @@
 <div class = "dairy-container">
-    <div class='dairy-title'>My Diary</div>
+    <div class='dairy-title'>
+        My 
+        <div class="dropdown">
+            <button class="dropbtn"><span><%= params[:page] || 'thoughts'%></span> <i class="fas fa-caret-down"></i></button>
+            <div class="dropdown-content">
+                <a href="/dairy">thoughts</a>
+                <a href="/dairy?page=scripts">scripts</a>
+                <a href="/dairy?page=reels">reels</a>
+            </div>
+        </div>
+    </div>
 
     <div class='dairy-summary'>
         <%# I'm mapping my own journey of evolution by sharing my thoughts in this space. 
