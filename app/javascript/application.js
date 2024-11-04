@@ -2,8 +2,10 @@
 import "@hotwired/turbo-rails"
 import { showPopup, hidePopup } from "popup"
 import { sendGtagEvent } from "tracking"
+import { openDropdown } from "diary-category-dropdown"
 
 window.sendGtagEvent = sendGtagEvent;
+window.openDropdown = openDropdown;
 
 function attachEventListeners() {
     // Show popup
