@@ -33,6 +33,14 @@ function attachEventListeners() {
             hidePopup(postId);
         }
     });
+
+    // Close diary category when clicked outside
+    window.addEventListener('click', () => {
+        const openDropdown = document.querySelector('.dropdown-content.display-block');
+        if (openDropdown) {
+            openDropdown.classList.remove('display-block');
+        }
+    });
 }
 // Listen for Turbo events
 document.addEventListener('turbo:load', attachEventListeners);
