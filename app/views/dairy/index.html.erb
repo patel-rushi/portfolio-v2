@@ -2,7 +2,7 @@
     <div class='dairy-title'>
         My 
         <div class="dropdown">
-            <button class="dropbtn"><span><%= params[:page] || 'thoughts'%></span> <i class="fas fa-caret-down"></i></button>
+            <button class="dropbtn", id="dropbtn-diary", onclick="openDropdown()"><span><%= params[:page] || 'thoughts'%></span> <i class="fas fa-caret-down"></i></button>
             <div class="dropdown-content">
                 <a href="/dairy">thoughts</a>
                 <a href="/dairy?page=scripts">scripts</a>
