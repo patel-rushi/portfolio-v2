@@ -36,16 +36,10 @@ function attachEventListeners() {
 
     // Close diary category when clicking outside of it
     window.addEventListener('click', (event) => {
-        console.log(event)
         const dropdownContainer = document.querySelector('.dropdown')
         const openDropdown = document.querySelector('.dropdown-content.display-block');
         if (openDropdown && !dropdownContainer.contains(event.target)) {
             openDropdown.classList.remove('display-block');
-            // var dropdown = document.getElementById('dropbtn-diary');
-            // if (dropdown) {
-            //     openDropdown.classList.remove('display-block');
-            //     //document.body.classList.remove('popup-active');
-            // }
         }
     });
 }
