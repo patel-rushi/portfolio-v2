@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import { showPopup, hidePopup } from "popup"
 import { sendGtagEvent } from "tracking"
-import { openDropdown } from "diary-category-dropdown"
+import { openDropdown, closeDropdown } from "diary-category-dropdown"
 
 window.sendGtagEvent = sendGtagEvent;
 window.openDropdown = openDropdown;
@@ -36,11 +36,7 @@ function attachEventListeners() {
 
     // Close diary category when clicking outside of it
     window.addEventListener('click', (event) => {
-        const dropdownContainer = document.querySelector('.dropdown')
-        const openDropdown = document.querySelector('.dropdown-content.display-block');
-        if (openDropdown && !dropdownContainer.contains(event.target)) {
-            openDropdown.classList.remove('display-block');
-        }
+        closeDropdown(event);
     });
 }
 // Listen for Turbo events
