@@ -1,7 +1,6 @@
-export function openDropdown () {
-    var dropdownBtn = document.getElementById('dropbtn-diary');
-    var dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownBtn.classList) {
+export function openDropdown() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent) {
         dropdownContent.classList.toggle('display-block');
     }
 }
