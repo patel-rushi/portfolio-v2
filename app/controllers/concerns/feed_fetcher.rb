@@ -1,11 +1,14 @@
 module FeedFetcher
     extend ActiveSupport::Concern
+    include FeedFilters
 
+    # Multiple tag example: 
+    # tags: ['[Script]', '[Monologue]']
     CATEGORIES = {
-      # thoughts: { tag: '', name: 'Thought' },
-      scripts: { tag: '[Script]', name: 'Script' },
-      reels: { tag: '[Reel]', name: 'Reel' },
-      tech: { tag: '[Tech]', name: 'Tech' }
+      notes: { tags: [], name: FeedFilters::NAMES[:notes] },
+      scripts: { tags: ['[Script]'], name: FeedFilters::NAMES[:scripts] },
+      reels: { tags: ['[Reel]'], name: FeedFilters::NAMES[:reels] },
+      tech: { tags: ['[Tech]'], name: FeedFilters::NAMES[:tech] }
     }.freeze
 
     private
@@ -31,15 +34,18 @@ module FeedFetcher
     end
 
       def fetch_posts(page)
-        category_tag = page.present? ? CATEGORIES.dig(page.to_sym, :tag) : nil
+        category_tags = page.present? ? CATEGORIES.dig(page.to_sym, :tags) : []
       
         all_entries = []
         PAGE_PARAMS.each do |page_param|
           page_url = "#{BASE_URL}#{page_param}"
           entries = fetch_feed_entries(page_url).map do |entry|
             title = entry.xpath('title').text
-            next if category_tag && !title.include?(category_tag)
-            next if !category_tag && CATEGORIES.values.any? { |cat| title.include?(cat[:tag]) }
+            if category_tags.any?
+              next unless category_tags.any? { |tag| title.include?(tag) }
+            else
+              next if CATEGORIES.values.any? { |cat| cat[:tags].any? { |tag| title.include?(tag) } }
+            end
             extract_content_from_xml(entry, page)
           end.compact
           all_entries.concat(entries)
@@ -73,7 +79,7 @@ module FeedFetcher
         url_match = url_regex.match(content_fully_decoded)
         return [nil, nil] unless url_match
         iframe_url = url_match[1]
-        
+
         # Extract the height for the iframe
         height_regex = /height="(\d+)"/
         height_match = height_regex.match(content_fully_decoded)
@@ -83,12 +89,12 @@ module FeedFetcher
         additional_url_regex = /url="[^"]+href="([^"]+)"/
         additional_url_match = additional_url_regex.match(content_fully_decoded)
         post_url = additional_url_match[1] if additional_url_match
-    
+
         # Construct the iframe tag with the extracted URL
         iframe_html = if iframe_url
                         "<iframe src=\"#{iframe_url}\" height=\"#{iframe_height || '1000'}\" width=\"96%\" frameborder=\"0\" allowfullscreen title=\"Embedded post\" class=\"custom-height\"></iframe>"  
                       end
-    
+
         [iframe_html, post_url]
       end
 end
