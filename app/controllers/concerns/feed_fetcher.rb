@@ -1,6 +1,13 @@
 module FeedFetcher
     extend ActiveSupport::Concern
-    
+
+    CATEGORIES = {
+      # thoughts: { tag: '', name: 'Thought' },
+      scripts: { tag: '[Script]', name: 'Script' },
+      reels: { tag: '[Reel]', name: 'Reel' },
+      tech: { tag: '[Tech]', name: 'Tech' }
+    }.freeze
+
     private
     included do
         # Update both development and produdction credentials
@@ -23,21 +30,16 @@ module FeedFetcher
         }
     end
 
-    def fetch_posts(page)
-        category = case page
-                   when 'scripts' then '[Script]'
-                   when 'reels' then '[Reel]'
-                   when 'tech' then '[Tech]'
-                   else nil
-                   end
-    
+      def fetch_posts(page)
+        category_tag = page.present? ? CATEGORIES.dig(page.to_sym, :tag) : nil
+      
         all_entries = []
         PAGE_PARAMS.each do |page_param|
           page_url = "#{BASE_URL}#{page_param}"
           entries = fetch_feed_entries(page_url).map do |entry|
             title = entry.xpath('title').text
-            next if category && !title.include?(category)
-            next if !category && (title.include?('[Script]') || title.include?('[Reel]') || title.include?('[Tech]'))
+            next if category_tag && !title.include?(category_tag)
+            next if !category_tag && CATEGORIES.values.any? { |cat| title.include?(cat[:tag]) }
             extract_content_from_xml(entry, page)
           end.compact
           all_entries.concat(entries)
@@ -47,12 +49,11 @@ module FeedFetcher
     
       def extract_content_from_xml(entry, page)
         embed_iframe, post_url = extract_iframe_url(entry)
-        category = case page
-                   when 'scripts' then 'Script'
-                   when 'reels' then 'Reel'
-                   when 'tech' then embed_iframe.present? ? 'Linkedin Post' : 'Tech'
-                   else 'Thought'
-                   end
+        category = if page == 'tech'
+               embed_iframe.present? ? 'Linkedin Post' : CATEGORIES.dig(page.to_sym, :name)
+             else
+              page.present? ? CATEGORIES.dig(page.to_sym, :name) : 'Thought'
+             end
         parse_entry(entry).merge(
           category: category,
           title: entry.xpath('title').text.gsub(/\[.*?\]/, '').strip,
