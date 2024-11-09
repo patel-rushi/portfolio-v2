@@ -56,9 +56,9 @@ module FeedFetcher
   def extract_content_from_xml(entry, page)
     embed_iframe, post_url = extract_iframe_url(entry)
     category = if page == 'tech'
-                 embed_iframe.present? ? 'Linkedin Post' : CATEGORIES.dig(page.to_sym, :name)
+                 embed_iframe.present? ? 'Linkedin Post' : CATEGORIES.dig(page.to_sym, :name).capitalize
                else
-                 page.present? ? CATEGORIES.dig(page.to_sym, :name) : 'Thought'
+                 page.present? ? CATEGORIES.dig(page.to_sym, :name).capitalize : CATEGORIES.values.first[:name].capitalize
                end
     parse_entry(entry).merge(
       category: category,
