@@ -2,8 +2,10 @@
 import "@hotwired/turbo-rails"
 import { showPopup, hidePopup } from "popup"
 import { sendGtagEvent } from "tracking"
+import { openDropdown, closeDropdown } from "diary-category-dropdown"
 
 window.sendGtagEvent = sendGtagEvent;
+window.openDropdown = openDropdown;
 
 function attachEventListeners() {
     // Show popup
@@ -30,6 +32,11 @@ function attachEventListeners() {
             const postId = openPopup.getAttribute('data-post-id');
             hidePopup(postId);
         }
+    });
+
+    // Close diary category when clicking outside of it
+    window.addEventListener('click', (event) => {
+        closeDropdown(event);
     });
 }
 // Listen for Turbo events
