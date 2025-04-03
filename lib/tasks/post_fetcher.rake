@@ -9,6 +9,7 @@ namespace :posts do
     # tags: ['[Script]', '[Monologue]']
     BASE_URL = Rails.application.credentials.dig(:feed, :base_url).freeze
     PAGE_PARAMS = Rails.application.credentials.dig(:feed, :page_params).freeze
+    IMAGE_DIR = Rails.root.join('public', 'images', 'posts')
 
     CATEGORIES = {
       notes: { tags: [], name: FeedFilters::NAMES[:notes] },
@@ -33,7 +34,8 @@ namespace :posts do
             content: post_data[:content],
             category: post_data[:category],
             embed: post_data[:embed],
-            url: post_data[:url]
+            url: post_data[:url],
+            image_path: post_data[:image_path]
           )
         else
           # Create a new post
@@ -44,25 +46,11 @@ namespace :posts do
             content: post_data[:content],
             category: post_data[:category],
             embed: post_data[:embed],
-            url: post_data[:url]
+            url: post_data[:url],
+            image_path: post_data[:image_path]
           )
         end
       end
-    end
-    
-    def fetch_feed_entries(url)
-      document = Nokogiri::XML(URI.open(url))
-      document.remove_namespaces!
-      document.xpath('//entry')
-    end
-
-    def parse_entry(entry)
-      {
-        remote_id: entry.xpath('id').text.split('/').last,
-        title: entry.xpath('title').text,
-        published_at: entry.xpath('published').text,
-        content: entry.xpath('content').text,
-      }
     end
 
     def fetch_posts(page)
@@ -85,6 +73,12 @@ namespace :posts do
       all_entries
     end
 
+    def fetch_feed_entries(url)
+      document = Nokogiri::XML(URI.open(url))
+      document.remove_namespaces!
+      document.xpath('//entry')
+    end
+
     def extract_content_from_xml(entry, page)
       embed_iframe, post_url = extract_iframe_url(entry)
       category = if page == 'tech'
@@ -96,9 +90,19 @@ namespace :posts do
         category: category,
         title: entry.xpath('title').text.gsub(/\[.*?\]/, '').strip,
         embed: embed_iframe,
-        content: embed_iframe.present? ? 'Press to checkout post' : entry.xpath('content').text,
-        url: entry.xpath('link[@rel="alternate"]').first['href']
+        content: embed_iframe.present? ? 'Press to checkout post' : save_images_and_edit_content(entry.xpath('content').text, true),
+        url: entry.xpath('link[@rel="alternate"]').first['href'],
+        image_path: save_images_and_edit_content(entry.xpath('content').text, false)
       )
+    end
+
+    def parse_entry(entry)
+      {
+        remote_id: entry.xpath('id').text.split('/').last,
+        title: entry.xpath('title').text,
+        published_at: entry.xpath('published').text,
+        content: entry.xpath('content').text,
+      }
     end
 
     def extract_iframe_url(entry)
@@ -128,6 +132,62 @@ namespace :posts do
                     end
 
       [iframe_html, post_url]
+    end
+
+    def save_images_and_edit_content(content, return_edited_content = false)
+      FileUtils.mkdir_p(IMAGE_DIR) unless Dir.exist?(IMAGE_DIR)
+      image_urls = content.scan(/<img[^>]+src="([^"]+)"/).flatten
+
+      image_paths = image_urls.map do |url|
+        filename = URI.decode_www_form_component(File.basename(URI.parse(url).path))
+        
+        filepath = IMAGE_DIR.join(filename)
+
+        # Download the image
+        unless File.exist?(filepath)
+          # Download the image
+          File.open(filepath, 'wb') do |file|
+            file.write(URI.open(url).read)
+          end
+        end
+
+        local_path = filepath.to_s.sub(Rails.root.join('public').to_s, '')
+        content.gsub!(url, local_path)
+      end
+
+      # Update href attributes in <a> tags
+      content.gsub!(/<a[^>]+href="([^"]+)"/) do |match|
+        url = $1
+        if url.include?('world.hey.com')
+          filename = File.basename(URI.parse(url).path)
+          local_path = IMAGE_DIR.join(filename).to_s.sub(Rails.root.join('public').to_s, '')
+          match.gsub(url, local_path)
+        else
+          match
+        end
+      end
+
+      # Update srcset attributes in <img> tags
+      content.gsub!(/<img[^>]+srcset="([^"]+)"/) do |match|
+        srcset = $1
+        updated_srcset = srcset.split(',').map do |src|
+          url, descriptor = src.strip.split(' ')
+          if url.include?('world.hey.com')
+            filename = File.basename(URI.parse(url).path)
+            local_path = IMAGE_DIR.join(filename).to_s.sub(Rails.root.join('public').to_s, '')
+            "#{local_path} #{descriptor}"
+          else
+            src
+          end
+        end.join(', ')
+        match.gsub(srcset, updated_srcset)
+      end
+
+      if return_edited_content
+        content
+      else
+        image_paths.present? ? image_paths.join(', ') : nil
+      end
     end
 
     fetch_and_store_posts
