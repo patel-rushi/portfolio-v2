@@ -3,14 +3,15 @@
         <div class="popup-heading">
           <div class='blog-title'>
             <%= post[:title] %>
-            <% if post[:embed] %>
+            <% if post[:url].present? %>
               <a class="link_to" target="_blank" href="<%= post[:url] %>">(<%= post[:category] %>)</a>
             <% end %>
           </div>
           <div class="close">&times;</div>
         </div>
         <div class="blog-content">
-          <%= raw post[:embed] || post[:content] %>
+          <%= raw post[:content] %>
+          <%= raw post[:embed] %>
         </div>
     </div>
 </div>

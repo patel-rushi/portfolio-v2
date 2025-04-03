@@ -3,9 +3,9 @@
         <div class='blog-header'>
             <div>
                 <div class='blog-title'><%= post[:title] %></div>
-                <div class='blog-category'><%= post[:category] %> 
-                <% if !post[:published_at].empty? %>
-                    on <%= post[:published_at].to_date.strftime('%b %d, %Y') %>
+                <div class='blog-category'><%= post[:category].capitalize %> 
+                <% if post[:published_at] || post[:created_at]%>
+                    on <%= (post[:published_at] || post[:created_at]).to_date.strftime('%b %d, %Y')%>
                 <% end %>
                 </div>
             </div>
