@@ -1,7 +1,23 @@
 class ApplicationController < ActionController::Base
+  helper_method :authenticated?
   before_action :set_home_blog_posts
 
   private
+
+  def authenticate
+    return if authenticated?
+    authenticate_or_request_with_http_basic do |name, password|
+      if User.find_by(name:)&.authenticate(password)
+        session[:logged_in] = true
+      else
+        request_http_basic_authentication
+      end
+    end
+  end
+
+  def authenticated?
+    session[:logged_in].present?
+  end
 
   def set_home_blog_posts
     content = "Recently, one of our clients requested an inventory management page. Their instruction was simple: \"We want to manage inventory for items like gloves, tools, etc.\" 

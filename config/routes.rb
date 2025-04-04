@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # Routes for '?post=id'
   get 'tech', to: 'tech#index', as: :tech_with_id
   get 'dairy', to: 'dairy#index', as: :dairy_with_id
+  get '/login', to: 'session#login'
+  delete '/logout', to: 'session#logout', as: :logout
   # Defines the root path route ("/")
   # root "posts#index"
 end
