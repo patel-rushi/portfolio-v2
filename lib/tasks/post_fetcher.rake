@@ -155,32 +155,34 @@ namespace :posts do
         content.gsub!(url, local_path)
       end
 
-      # Update href attributes in <a> tags
-      content.gsub!(/<a[^>]+href="([^"]+)"/) do |match|
-        url = $1
-        if url.include?('world.hey.com')
-          filename = File.basename(URI.parse(url).path)
-          local_path = IMAGE_DIR.join(filename).to_s.sub(Rails.root.join('public').to_s, '')
-          match.gsub(url, local_path)
-        else
-          match
-        end
-      end
-
-      # Update srcset attributes in <img> tags
-      content.gsub!(/<img[^>]+srcset="([^"]+)"/) do |match|
-        srcset = $1
-        updated_srcset = srcset.split(',').map do |src|
-          url, descriptor = src.strip.split(' ')
+      if image_urls.present?
+        # Update href attributes in <a> tags
+        content.gsub!(/<a[^>]+href="([^"]+)"/) do |match|
+          url = $1
           if url.include?('world.hey.com')
             filename = File.basename(URI.parse(url).path)
             local_path = IMAGE_DIR.join(filename).to_s.sub(Rails.root.join('public').to_s, '')
-            "#{local_path} #{descriptor}"
+            match.gsub(url, local_path)
           else
-            src
+            match
           end
-        end.join(', ')
-        match.gsub(srcset, updated_srcset)
+        end
+
+        # Update srcset attributes in <img> tags
+        content.gsub!(/<img[^>]+srcset="([^"]+)"/) do |match|
+          srcset = $1
+          updated_srcset = srcset.split(',').map do |src|
+            url, descriptor = src.strip.split(' ')
+            if url.include?('world.hey.com')
+              filename = File.basename(URI.parse(url).path)
+              local_path = IMAGE_DIR.join(filename).to_s.sub(Rails.root.join('public').to_s, '')
+              "#{local_path} #{descriptor}"
+            else
+              src
+            end
+          end.join(', ')
+          match.gsub(srcset, updated_srcset)
+        end
       end
 
       if return_edited_content
