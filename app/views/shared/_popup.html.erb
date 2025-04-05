@@ -6,6 +6,9 @@
             <% if post[:url].present? %>
               <a class="link_to" target="_blank" href="<%= post[:url] %>">(<%= post[:category] %>)</a>
             <% end %>
+            <% if authenticated? %>
+              (<u><%= link_to 'edit', edit_post_path(post), class: 'edit-button' %></u>)
+            <% end %>
           </div>
           <div class="close">&times;</div>
         </div>

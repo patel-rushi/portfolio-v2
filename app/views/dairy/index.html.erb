@@ -1,6 +1,10 @@
 <div class = "dairy-container">
     <div class='dairy-title'>
-        My 
+        <% if authenticated? %>
+            <%= link_to "Create ", new_post_path %>
+        <% else %>
+            My 
+        <% end %>
         <div class="dropdown">
             <button class="dropbtn", id="dropbtn-diary", onclick="openDropdown()">
                 <span><%= params[:page] ? FeedFilters::NAMES[params[:page].to_sym] : FeedFilters::NAMES[:notes] %></span>
