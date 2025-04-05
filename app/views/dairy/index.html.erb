@@ -1,6 +1,10 @@
 <div class = "dairy-container">
     <div class='dairy-title'>
-        My 
+        <% if authenticated? %>
+            <%= link_to "Create ", new_post_path %>
+        <% else %>
+            My 
+        <% end %>
         <div class="dropdown">
             <button class="dropbtn", id="dropbtn-diary", onclick="openDropdown()">
                 <span><%= params[:page] ? FeedFilters::NAMES[params[:page].to_sym] : FeedFilters::NAMES[:notes] %></span>
@@ -21,7 +25,7 @@
         to see them improve. Sharing them here seems like a good way to track my personal progress.
         Feel free to shoot me a DM or email 
         if any of these thoughts spark a desire to talk. Happy reading! %>
-        Figuring out life one post at a time:
+        Notes to self:
     </div>
 
     <div class='dairy-post-container'>
