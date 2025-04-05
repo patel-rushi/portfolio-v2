@@ -1,0 +1,33 @@
+<%= javascript_import_module_tag "trix" %>
+<!-- app/views/posts/_form.html.erb -->
+<div class="form-container">
+  <%= form_with model: @post, local: true do |form| %>
+    <div class="field">
+      <%= form.label :category, "Category" %>
+      <%= form.select :category, FeedFilters::NAMES.map { |key, value| [value.titleize, key] }, prompt: "Choose a category" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.hidden_field :content, id: "post_content" %>
+      <trix-editor input="post_content"></trix-editor>
+    </div>
+
+    <div class="field">
+      <%= form.label :embed, "Embed Content" %>
+      <%= form.text_area :embed, placeholder: "Add embed code here" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit @post.persisted? ? 'Update Post' : 'Create Post' %>
+      <% if @post.persisted? %>
+        <%= link_to 'Delete Post', @post, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this post?' }, class: 'delete-button' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
