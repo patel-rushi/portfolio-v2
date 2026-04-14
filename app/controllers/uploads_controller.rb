@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
   before_action :authenticate
 
-  UPLOAD_DIR = Rails.root.join("public", "uploads", "editor")
+  UPLOAD_DIR = Rails.root.join("public", "images", "editor")
   MAX_FILE_SIZE = 50.megabytes
   ALLOWED_CONTENT_TYPES = %w[image/jpeg image/png image/gif image/webp image/svg+xml image/heic image/heif].freeze
 
@@ -27,6 +27,6 @@ class UploadsController < ApplicationController
 
     File.open(filepath, "wb") { |f| f.write(file.read) }
 
-    render json: { url: "/uploads/editor/#{filename}" }
+    render json: { url: "/images/editor/#{filename}" }
   end
 end

@@ -43,6 +43,3 @@ node_modules/
 
 # images
 /public/images
-
-# editor uploads
-/public/uploads
