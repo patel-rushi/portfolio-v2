@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :dairy, only: [:index]
   resources :tech, only: [:index]
   resources :posts
+  post "/uploads", to: "uploads#create"
   # Routes for '?post=id'
   get 'tech', to: 'tech#index', as: :tech_with_id
   get 'dairy', to: 'dairy#index', as: :dairy_with_id
