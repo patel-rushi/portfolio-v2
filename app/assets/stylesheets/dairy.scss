@@ -69,3 +69,89 @@
 .display-block {
     display: block;
 }
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.pagination-link {
+    min-width: 2rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    color: $black;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $medium-grey;
+    }
+
+    &.current {
+        background-color: $black;
+        color: $white;
+    }
+}
+
+.pagination-gap {
+    color: $dark-grey;
+}
+
+.pagination-compact {
+    justify-content: space-between;
+    margin: 0;
+}
+
+.pagination-status {
+    color: $dark-grey;
+    font-size: $small;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid $medium-grey;
+    border-radius: 10px;
+
+    &:focus-within {
+        border-color: $dark-grey;
+    }
+}
+
+.search-submit {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $dark-grey;
+    }
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+}
+
+.search-clear {
+    color: $dark-grey;
+    font-size: $small;
+    text-decoration: none;
+
+    &:hover {
+        color: $black;
+    }
+}

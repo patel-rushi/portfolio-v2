@@ -1,0 +1,10 @@
+<%= form_with url: request.path, method: :get, class: 'search-form', html: { role: 'search' } do %>
+    <%= hidden_field_tag :page, @page, id: nil if @page %>
+    <%= search_field_tag :q, params[:q], placeholder: 'Search posts', maxlength: 100, class: 'search-input', enterkeyhint: 'search', 'aria-label': 'Search posts' %>
+    <% if params[:q].present? %>
+        <%= link_to 'Clear', params.permit(:page), class: 'search-clear' %>
+    <% end %>
+    <%= button_tag type: 'submit', name: nil, class: 'search-submit', 'aria-label': 'Search' do %>
+        <i class="fas fa-search"></i>
+    <% end %>
+<% end %>

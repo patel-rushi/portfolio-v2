@@ -1,0 +1,30 @@
+<% if @total_pages > 1 %>
+    <% link_params = params.permit(:page, :q) %>
+    <nav class="pagination<%= ' pagination-compact' if local_assigns[:compact] %>" aria-label="Pagination">
+        <% if @current_page > 1 %>
+            <%= link_to link_params.merge(p: @current_page - 1), class: 'pagination-link', rel: 'prev', 'aria-label': 'Previous page' do %>
+                <i class="fas fa-arrow-left"></i>
+            <% end %>
+        <% end %>
+
+        <% if local_assigns[:compact] %>
+            <span class="pagination-status">Page <%= @current_page %> of <%= @total_pages %></span>
+        <% else %>
+            <% pagination_window(@current_page, @total_pages).each do |n| %>
+                <% if n.nil? %>
+                    <span class="pagination-gap">&hellip;</span>
+                <% elsif n == @current_page %>
+                    <span class="pagination-link current" aria-current="page"><%= n %></span>
+                <% else %>
+                    <%= link_to n, link_params.merge(p: n), class: 'pagination-link' %>
+                <% end %>
+            <% end %>
+        <% end %>
+
+        <% if @current_page < @total_pages %>
+            <%= link_to link_params.merge(p: @current_page + 1), class: 'pagination-link', rel: 'next', 'aria-label': 'Next page' do %>
+                <i class="fas fa-arrow-right"></i>
+            <% end %>
+        <% end %>
+    </nav>
+<% end %>

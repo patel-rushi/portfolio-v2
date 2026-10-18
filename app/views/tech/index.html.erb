@@ -1,5 +1,5 @@
 <div class = "dairy-container">
-    <% if @tech_posts.empty? %>
+    <% if @tech_posts.empty? && params[:q].blank? %>
         <div class='work-in-progress'>
             No tech posts available at the moment. Please check back later!
         </div>
@@ -9,9 +9,15 @@
         <div class='dairy-summary'>
             I write about software development, user experience, project management, or anything else that I learn.
         </div>
+        <%= render 'shared/search' %>
+        <% if @tech_posts.empty? %>
+            <p>No posts match &ldquo;<%= params[:q] %>&rdquo;.</p>
+        <% end %>
+        <%= render 'shared/pagination', compact: true %>
         <% @tech_posts.each do |post| %>
             <%= render partial: 'shared/card', locals: { post: post } %>
         <% end %>
+        <%= render 'shared/pagination' %>
     <% end %>
     <p>
         <%=link_to 'View all my tech posts on', 'https://www.linkedin.com/in/rushipatel-/recent-activity/all/', class: 'link_to', target: '_blank', onclick: "sendGtagEvent('link_click', 'outbound', 'View all my tech posts');" %>
